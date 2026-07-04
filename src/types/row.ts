@@ -1,6 +1,8 @@
 import type { Stitch } from "./stitch"
-interface Row {
-    stitches: Stitch[]
+interface Row_Type {
+    row_number: number
+    stitches: string[]
     final_stitch_count: number
+    finished: Boolean
 }
-export type { Row }
+export type { Row_Type }

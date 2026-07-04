@@ -1,6 +1,6 @@
-import type { Row } from "./row"
-interface Section {
+import type { Row_Type } from "./row"
+interface Section_Type {
     name: string
-    rows: Row[]
+    rows: Row_Type[]
 }
-export type { Section }
+export type { Section_Type }
