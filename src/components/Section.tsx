@@ -10,6 +10,7 @@ function Section(section: Section_Type){
                 <Row key={row.row_number} row_number={row.row_number} stitches={row.stitches} finished={row.finished} final_stitch_count={row.final_stitch_count}/>
             )}
             <input type="button" value="+" onClick={addRow}></input>
+            <input type="button" value="-" onClick={removeRow}></input>
            </div>
     function addRow(){
         const new_empty_row = {row_number: rows.length + 1, stitches: [], input:"", finished: false, final_stitch_count: 0}
@@ -18,6 +19,10 @@ function Section(section: Section_Type){
             rows[rows.length - 1].stitches = document.getElementById("row_" + rows.length.toString()).value
         }
         const new_rows = [...rows, new_empty_row]
+        setRows(new_rows)
+    }
+    function removeRow(){
+        const new_rows = rows.slice(0, (rows.length - 1))
         setRows(new_rows)
     }
 }

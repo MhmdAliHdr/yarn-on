@@ -14,12 +14,17 @@ function App() {
       )}
       <input type="text" id="new_section_name"></input>
       <input type="button" value="+" onClick={addSection}></input>
+      <input type="button" value="-" onClick={removeSection}></input>
     </>
   )
   function addSection(){
     const new_section_name = document.getElementById("new_section_name").value
     const new_empty_section = {name: new_section_name, rows: [{row_number: 1, stitches: ["sc"], input:"", finished: false, final_stitch_count: 0}, ]}
     const new_sections = [...sections, new_empty_section]
+    setSections(new_sections)
+  }
+  function removeSection(){
+    const new_sections = sections.slice(0, (sections.length - 1))
     setSections(new_sections)
   }
 }
