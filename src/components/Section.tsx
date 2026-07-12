@@ -5,7 +5,7 @@ import type { Row_Type } from "../types/row";
 
 function Section(section: Section_Type){
     const [rows, setRows] = useState<Row_Type[]>(section.rows)
-    return <div key={section.name} >{section.name}
+    return <div key={section.name} ><h2>{section.name}</h2>
             {rows.map(row =>
                 <Row key={row.row_number} row_number={row.row_number} stitches={row.stitches} finished={row.finished} final_stitch_count={row.final_stitch_count}/>
             )}
