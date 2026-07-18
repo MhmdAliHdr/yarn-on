@@ -16,7 +16,10 @@ function Section(section: Section_Type){
         const new_empty_row = {row_number: rows.length + 1, stitches: [], input:"", finished: false, final_stitch_count: 0}
         if(rows.length > 0){
             rows[rows.length - 1].finished = true
-            rows[rows.length - 1].stitches = document.getElementById("row_" + rows.length.toString()).value
+            const row_input = document.getElementById("latest_row")
+            if(row_input != null){
+                rows[rows.length - 1].stitches = document.getElementById("latest_row").value
+            }
         }
         const new_rows = [...rows, new_empty_row]
         setRows(new_rows)
