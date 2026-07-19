@@ -16,7 +16,6 @@ function App() {
   }
   return (
     <>
-    {console.log(currentPattern)}
       <h1>Yarn On</h1>
       <h2>Change Pattern:</h2>
         <select id="selected_pattern" onChange={() => {changePattern()}}>
@@ -40,7 +39,15 @@ function App() {
       <h2 id="difficulty">Level: {currentPattern.difficulty}</h2>
       <img id="pattern_image_tag" src={currentPattern.image}></img>
       {currentPattern.sections.map(section =>
+        <>
         <Section key={section.name} name={section.name} rows={section.rows}/>
+        {!section.rows[section.rows.length - 1].finished?
+          <>
+          <input type="button" value="+" onClick={addRow}></input>
+          <input type="button" value="-" onClick={removeRow}></input>
+          </> : <></>
+        }
+        </>
       )}
       <input type="text" id="new_section_name"></input>
       <input type="button" value="+" onClick={addSection}></input>
@@ -52,6 +59,7 @@ function App() {
   function savePattern(){
     var savedPatterns = JSON.parse(localStorage.getItem("savedPatterns"))
     if(localStorage.getItem("savedPatterns") != null){
+      console.log(currentPattern)
       savedPatterns.push(currentPattern)
     }
     else {
@@ -85,15 +93,50 @@ function App() {
   }
   function addSection(){
     const new_section_name = document.getElementById("new_section_name").value
-    const new_empty_section = {name: new_section_name, rows: [{row_number: 1, stitches: ["sc"], input:"", finished: false, final_stitch_count: 0}, ]}
-    const newSections = [...currentPattern.sections, new_empty_section]
-    const changedPattern = {title: currentPattern.title, author: currentPattern.author, image: currentPattern.image, difficulty: currentPattern.difficulty, sections: newSections}
-    setCurrentPattern(changedPattern)
+    if(currentPattern.sections.length > 0){
+      var last_section = currentPattern.sections[currentPattern.sections.length - 1]
+      var last_row_of_last_section = last_section.rows[last_section.rows.length - 1]
+      last_row_of_last_section = {row_number: last_row_of_last_section.row_number, stitches: last_row_of_last_section.stitches, input:last_row_of_last_section.input, 
+      finished: true, final_stitch_count: last_row_of_last_section.final_stitch_count}
+      var last_section_rows = last_section.rows
+      last_section_rows.pop()
+      last_section_rows = [...last_section_rows, last_row_of_last_section]
+      const new_empty_section = {name: new_section_name, rows: [{row_number: 1, stitches: [], input:"", finished: false, final_stitch_count: 0}]}
+      currentPattern.sections.pop()
+      var newSections = [...currentPattern.sections, last_section]
+      newSections = [...newSections, new_empty_section]
+      const changedPattern = {title: currentPattern.title, author: currentPattern.author, image: currentPattern.image, difficulty: currentPattern.difficulty, sections: newSections}
+      setCurrentPattern(changedPattern)
+    }
+    else{
+      const new_empty_section = {name: new_section_name, rows: [{row_number: 1, stitches: [], input:"", finished: false, final_stitch_count: 0}]}
+      var newSections = [...currentPattern.sections, new_empty_section]
+      const changedPattern = {title: currentPattern.title, author: currentPattern.author, image: currentPattern.image, difficulty: currentPattern.difficulty, sections: newSections}
+      setCurrentPattern(changedPattern)
+    }
   }
   function removeSection(){
+    const sections = currentPattern.sections
     const newSections = sections.slice(0, (sections.length - 1))
     const changedPattern = {title: currentPattern.title, author: currentPattern.author, image: currentPattern.image, difficulty: currentPattern.difficulty, sections: newSections}
     setCurrentPattern(changedPattern)
-  } 
+  }
+  function addRow(){
+    const section = currentPattern.sections[currentPattern.sections.length - 1]
+    const new_empty_row = {row_number: section.rows.length + 1, stitches: [], input:"", finished: false, final_stitch_count: 0}
+    if(section.rows.length > 0){
+        section.rows[section.rows.length - 1].finished = true
+        section.rows[section.rows.length - 1].stitches = document.getElementById("latest_row").value
+    }
+    const new_rows = [...section.rows, new_empty_row]
+    const new_section = {"name": section.name, "rows": new_rows}
+    const index_of_section = currentPattern.sections.findIndex((s) => {return (s == section) })
+    const new_sections = currentPattern.sections.toSpliced(index_of_section, 1).toSpliced(index_of_section, 0, new_section)
+    const new_pattern = {title: currentPattern.title, author: currentPattern.author, image: currentPattern.image, difficulty: currentPattern.difficulty, sections: new_sections}
+    setCurrentPattern(new_pattern)
+    }
+    function removeRow(){
+        const new_rows = section.rows.slice(0, (section.rows.length - 1))
+    }
 }
 export default App
