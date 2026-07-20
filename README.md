@@ -20,6 +20,7 @@ Run the following command in the directory of the cloned repository:
 Run the following command:
 ```npm run dev```
 Then surf to "http://localhost:5173"
+
 ## 🧵 Notes
 <ul>
   <li>We have chosen to save patterns in the local storage of the browser in order to avoid requiring users to sign up for an account.</li>
@@ -27,5 +28,6 @@ Then surf to "http://localhost:5173"
   <li>Only one image per row are permitted. Users can always collage multiple photos and upload them instead</li>
   <li>For best image quality, make sure your images are square</li>
 </ul>
+
 ## ✂️ Submit Issues
 For any issues/bugs and suggestions, please send an email to: amby.haidar.dev@gmail.com
