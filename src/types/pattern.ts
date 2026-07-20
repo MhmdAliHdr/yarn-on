@@ -2,7 +2,7 @@ import type { Section_Type } from "./section"
 interface Pattern {
     title: string
     author: string
-    difficulty: "Easy" | "Intermediate" | "Difficult"
+    difficulty: string
     image: string
     sections: Section_Type[]
 }
