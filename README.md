@@ -10,6 +10,7 @@ or knitting pattern by sections and rows. This tool is built using ReactJS and T
   <li>Saving/Loading patterns: Patterns are saved locally in your browser. Do note that this means patterns are lost in case of a crash, remember to constantly press the save button.</li>
   <li>Exporting a pattern as PDF: This makes use of the <a href="https://www.npmjs.com/package/react-to-pdf">react-to-pdf</a> NPM package</li>
 </ul>
+
 ## 🧦 Running Locally
 For our more technical users who would prefer an offline version, you can simply clone or download this repository's code, then run the following commands:
 ### Install dependencies
