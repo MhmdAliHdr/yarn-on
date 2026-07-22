@@ -28,7 +28,7 @@ Then surf to "http://localhost:5173"
 <ul>
   <li>We have chosen to save patterns in the local storage of the browser in order to avoid requiring users to sign up for an account.</li>
   <li>Adding images requires uploading them to a cloud service (such as <a href="https://cloudinary.com/">Cloudinary</a>) and inputting its URL</li>
-  <li>Only one image per row are permitted. Users can always collage multiple photos and upload them instead</li>
+  <li>Only one image per row is permitted. Users can always collage multiple photos and upload them instead</li>
   <li>For best image quality, make sure your images are square</li>
 </ul>
 
