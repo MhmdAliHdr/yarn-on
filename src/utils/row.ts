@@ -5,8 +5,6 @@ import type { Section_Type } from "../types/section";
 export function addRow(latestRow: Row_Type | undefined, currentPattern: Pattern){
     // The last section is referenced
     const section = currentPattern.sections[currentPattern.sections.length - 1];
-    // The last row is referenced
-    console.log(latestRow)
     // A new empty row is initialized
     const new_empty_row = {row_number: section.rows.length + 1, stitches: "", input:"", img: undefined, finished: false, final_stitch_count: 0}
     // If the section has existing rows
