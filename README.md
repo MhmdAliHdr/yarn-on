@@ -4,7 +4,7 @@ or knitting pattern by sections and rows. This tool is built using ReactJS and T
 ## 🪡 Features
 <ul>
   <li>Technicalities: Naming a pattern, setting an author and a difficulty level alongside an image of the final product.</li>
-  ![patternchanging](https://i.makeagif.com/media/7-22-2026/RvTufq.gif)
+  <img src=https://i.makeagif.com/media/7-22-2026/RvTufq.gif></img>
   <li>Sectioning: Splitting a pattern into different sections (A sweater into front and back panels and sleeves), each section including rows</li>
   <li>Clarifying Images: It is possible to add images per row.</li>
   <li>Automatic row numbering: The rows are numbered as you add/remove them. Users are free to write the rows in any format they please, but we do recommend the standards of comma separated stitches (sc, sc, sc, sc).</li>
