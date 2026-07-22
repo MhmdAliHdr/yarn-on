@@ -1,6 +1,6 @@
 # 🧶 Yarn On
 A tool to make writing crochet and knitting patterns easier. Styling is taken care of, no need to worry about correct positionings or continously centering images. Yarn On is built to automatically structure a crochet
-or knitting pattern by sections and rows. This tool is built using ReactJS and TypeScript and stylized using TailWindCSS. A live demo is available at: <a href="https://yarnon.mohammadali-hd3.workers.dev/">here</a>
+or knitting pattern by sections and rows. This tool is built using ReactJS and TypeScript and stylized using TailWindCSS. A live demo is available <a href="https://yarnon.mohammadali-hd3.workers.dev/">here</a>
 ## 🪡 Features
 <ul>
   <li>Technicalities: Naming a pattern, setting an author and a difficulty level alongside an image of the final product.</li>
